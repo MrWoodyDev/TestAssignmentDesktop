@@ -7,9 +7,8 @@ using TestAssignmentDesktop.CoinCap.Client;
 using TestAssignmentDesktop.CoinCap.Domain.Assets.Models.GetCoinById.Request;
 using TestAssignmentDesktop.CoinCap.Domain.Assets.Models.GetCoins.Request;
 using TestAssignmentDesktop.CoinCap.Domain.Assets.Models.GetCoins.Response;
-using TestAssignmentDesktop.Wpf.Views;
 
-namespace TestAssignmentDesktop.Wpf;
+namespace TestAssignmentDesktop.Wpf.ViewModels;
 
 public class MainViewModel : ObservableObject
 {
