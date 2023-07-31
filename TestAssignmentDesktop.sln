@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAssignmentDesktop.CoinCap", "TestAssignmentDesktop.CoinCap\TestAssignmentDesktop.CoinCap.csproj", "{E714CEC2-DC38-41A7-B5DD-10C24F935676}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAssignmentDesktop.Wpf", "TestAssignmentDesktop.Wpf\TestAssignmentDesktop.Wpf.csproj", "{AA26B067-7CA0-4D79-873E-CBCDC5D6534E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E714CEC2-DC38-41A7-B5DD-10C24F935676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E714CEC2-DC38-41A7-B5DD-10C24F935676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E714CEC2-DC38-41A7-B5DD-10C24F935676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA26B067-7CA0-4D79-873E-CBCDC5D6534E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA26B067-7CA0-4D79-873E-CBCDC5D6534E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA26B067-7CA0-4D79-873E-CBCDC5D6534E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA26B067-7CA0-4D79-873E-CBCDC5D6534E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
