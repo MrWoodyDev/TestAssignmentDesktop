@@ -12,6 +12,7 @@ namespace TestAssignmentDesktop.Wpf.ViewModels;
 
 public class MainViewModel : ObservableObject
 {
+    private readonly ICoinCapClient _client;
     private readonly NavigationService _navigNavigationService;
     private string _searchTicket;
     private ObservableCollection<Coins> _coins = new();
@@ -19,9 +20,10 @@ public class MainViewModel : ObservableObject
     private int _searchLimit = 10;
     private ObservableCollection<int> _searchLimits = new();
 
-    public MainViewModel(NavigationService navigNavigationService)
+    public MainViewModel(NavigationService navigNavigationService, ICoinCapClient client)
     {
         _navigNavigationService = navigNavigationService;
+        _client = client;
         _searchLimits.Add(5);
         _searchLimits.Add(10);
         _searchLimits.Add(50);
@@ -72,11 +74,10 @@ public class MainViewModel : ObservableObject
 
     public async void SearchBoxTextChanged()
     {
-        var coinClient = new CoinCapClient(new HttpClient());
         string searchText = _searchTicket;
         int limit = _searchLimit;
         var request = new GetCoinsRequest(searchText, limit, 0);
-        var coinsListResponse = await coinClient.GetAssetsAsync(request);
+        var coinsListResponse = await _client.GetAssetsAsync(request);
 
         if (searchText != "")
         {
@@ -91,9 +92,8 @@ public class MainViewModel : ObservableObject
 
     public async Task CryptoCoinsList()
     {
-        var coinClient = new CoinCapClient(new HttpClient());
         var request = new GetCoinsRequest("", _searchLimit, 0);
-        var coinsListResponse = await coinClient.GetAssetsAsync(request);
+        var coinsListResponse = await _client.GetAssetsAsync(request);
 
         Coins.Clear();
 
@@ -105,12 +105,11 @@ public class MainViewModel : ObservableObject
 
     public async void ViewDetailsCoin()
     {
-        var coinClient = new CoinCapClient(new HttpClient());
         if (_selectedCoin != null)
         {
             string coinId = _selectedCoin.Id;
             var request = new GetCoinByIdRequest(coinId);
-            var coinByIdResponse = await coinClient.GetAssetByIdAsync(request);
+            var coinByIdResponse = await _client.GetAssetByIdAsync(request);
 
             var detailsPage = new DetailsPage
             {
