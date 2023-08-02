@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -72,7 +71,7 @@ public class MainViewModel : ObservableObject
         set => SetProperty(ref _searchLimits, value);
     }
 
-    public async void SearchBoxTextChanged()
+    public async Task SearchBoxTextChanged()
     {
         string searchText = _searchTicket;
         int limit = _searchLimit;
@@ -103,7 +102,7 @@ public class MainViewModel : ObservableObject
         }
     }
 
-    public async void ViewDetailsCoin()
+    public async Task ViewDetailsCoin()
     {
         if (_selectedCoin != null)
         {

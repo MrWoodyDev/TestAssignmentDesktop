@@ -10,7 +10,6 @@ namespace TestAssignmentDesktop.CoinCap.Client;
 public class CoinCapClient : ICoinCapClient
 {
     private const string BaseUri = "https://api.coincap.io/v2/";
-
     private readonly HttpClient _httpClient;
 
     public CoinCapClient(HttpClient httpClient)
@@ -26,7 +25,6 @@ public class CoinCapClient : ICoinCapClient
         var parametersDictionary = request.ToQueryParametersDictionary();
 
         var response = await _httpClient.GetAsync(BuildUrlQuery("assets", parametersDictionary));
-        
         response.EnsureSuccessStatusCode();
         var responseBody = await response.Content.ReadAsStringAsync();
         var coinsResponse = JsonConvert.DeserializeObject<CoinsResponse>(responseBody);
@@ -40,7 +38,6 @@ public class CoinCapClient : ICoinCapClient
             throw new ArgumentNullException(nameof(request));
 
         var parametersDictionary = request.ToQueryParametersDictionary();
-
         var response = await _httpClient.GetAsync(BuildUrlQuery($"assets/{request.Id}", parametersDictionary));
         response.EnsureSuccessStatusCode();
         var responseBody = await response.Content.ReadAsStringAsync();
@@ -51,7 +48,6 @@ public class CoinCapClient : ICoinCapClient
 
     private string BuildUrlQuery(string endpoint, IDictionary<string, string> queryParameters)
     {
-        
         return QueryHelpers.AddQueryString(BaseUri + endpoint, queryParameters);
     }
 }
